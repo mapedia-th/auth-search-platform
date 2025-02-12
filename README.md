@@ -1,2 +1,2 @@
-# dol-auth-search-platform
-dol auth search platform
+# auth-search-platform
+auth search platform
