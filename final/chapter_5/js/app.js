@@ -85,7 +85,7 @@ function submit_filter() {
         var geojson = L.geoJson(province.jsonb_build_object.geometry).addTo(provinces)
         map.fitBounds(geojson.getBounds(), { maxZoom: 14 });
 
-        $.getJSON("nsl.geojson", function (data) {
+        $.getJSON("geojson/nsl.geojson", function (data) {
             var nsl = data.features.filter((e) => e.properties.PROVINCE === selectProvince);
             console.log(nsl);
 
@@ -97,7 +97,7 @@ function submit_filter() {
                 L.geoJson(nslLayers,{color: 'red'}).addTo(nsl_layer)
             }
         })
-        $.getJSON("bokdin.geojson", function (data) {
+        $.getJSON("geojson/bokdin.geojson", function (data) {
             var bokdin = data.features.filter((e) => e.properties.Add_Provin === selectProvince);
             console.log(bokdin);
 
@@ -157,20 +157,20 @@ function submit_coodinate() {
     map.addLayer(markers);
 }
 
-const search = new GeoSearch.GeoSearchControl({
-    provider: new GeoSearch.OpenStreetMapProvider(),
-    position: 'topright',
-    style: 'bar',
-});
-map.addControl(search);
+// const search = new GeoSearch.GeoSearchControl({
+//     provider: new GeoSearch.OpenStreetMapProvider(),
+//     position: 'topright',
+//     style: 'bar',
+// });
+// map.addControl(search);
 
 
-var measureControl = new L.Control.Measure({ position: 'topright' });
-measureControl.addTo(map);
+// var measureControl = new L.Control.Measure({ position: 'topright' });
+// measureControl.addTo(map);
 
-var easyPrint = L.easyPrint({
-    title: 'My awesome print button',
-    position: 'topright',
-    sizeModes: ['A4Portrait', 'A4Landscape']
-})
-easyPrint.addTo(map);
+// var easyPrint = L.easyPrint({
+//     title: 'My awesome print button',
+//     position: 'topright',
+//     sizeModes: ['A4Portrait', 'A4Landscape']
+// })
+// easyPrint.addTo(map);
